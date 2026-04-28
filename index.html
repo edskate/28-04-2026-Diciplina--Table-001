@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5500/ -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Código de Conduta da Equipe — EdyMichaelCover</title>
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#121212;
+      --panel-2:#1b1b1b;
+      --gold:#d4af37;
+      --gold-2:#f2dc8b;
+      --text:#f5f2ea;
+      --muted:#b9b09a;
+      --line:rgba(212,175,55,.25);
+      --ok:#77d38b;
+      --warn:#ffcc58;
+      --danger:#ff6f6f;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Arial,Helvetica,sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(212,175,55,.10), transparent 20%),
+        radial-gradient(circle at left bottom, rgba(212,175,55,.08), transparent 18%),
+        var(--bg);
+      color:var(--text);
+    }
+
+    .wrap{max-width:1400px;margin:auto;padding:24px}
+    .hero{
+      background:linear-gradient(135deg, rgba(212,175,55,.12), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      border-radius:26px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      margin-bottom:22px;
+    }
+
+    .hero h1{margin:0 0 8px;color:var(--gold-2);font-size:clamp(28px,4vw,42px)}
+    .hero p{margin:6px 0;color:var(--muted);line-height:1.6}
+    .badge{
+      display:inline-block;
+      margin-top:10px;
+      padding:8px 14px;
+      border-radius:999px;
+      background:rgba(212,175,55,.12);
+      color:var(--gold-2);
+      border:1px solid var(--line);
+      font-size:14px;
+      font-weight:bold;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow);
+      margin-bottom:20px;
+    }
+
+    h2,h3{margin-top:0;color:var(--gold)}
+    h2{font-size:24px}
+    h3{font-size:18px}
+    p,li{line-height:1.6}
+    .muted{color:var(--muted)}
+
+    .code-list{display:grid;grid-template-columns:1fr;gap:12px}
+    .rule{
+      padding:14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.02);
+      border:1px solid rgba(212,175,55,.15);
+    }
+    .rule strong{color:var(--gold-2)}
+
+    .toolbar{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+    button{
+      background:linear-gradient(180deg, var(--gold-2), var(--gold));
+      color:#111;
+      border:none;
+      font-weight:bold;
+      padding:12px 16px;
+      border-radius:12px;
+      cursor:pointer;
+      box-shadow:0 6px 18px rgba(0,0,0,.2);
+    }
+    button.secondary{
+      background:#202020;
+      color:var(--text);
+      border:1px solid var(--line);
+    }
+    button.danger{
+      background:linear-gradient(180deg, #ff9a9a, var(--danger));
+      color:#190000;
+    }
+
+    form{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    form .full{grid-column:1/-1}
+    label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+    input,select,textarea{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#0d0d0d;
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px;resize:vertical}
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .stat{
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      text-align:center;
+    }
+    .stat .n{font-size:30px;font-weight:bold;color:var(--gold-2)}
+    .stat .t{font-size:13px;color:var(--muted)}
+
+    table{width:100%;border-collapse:collapse;margin-top:12px}
+    th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+    th{color:var(--gold-2);font-size:14px}
+    td{font-size:14px}
+
+    .pill{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:bold;
+      border:1px solid transparent;
+    }
+    .ok{background:rgba(119,211,139,.12);color:var(--ok);border-color:rgba(119,211,139,.25)}
+    .warn{background:rgba(255,204,88,.12);color:var(--warn);border-color:rgba(255,204,88,.25)}
+    .danger-pill{background:rgba(255,111,111,.12);color:var(--danger);border-color:rgba(255,111,111,.25)}
+
+    .footer-note{
+      margin-top:12px;
+      padding:12px;
+      border-radius:12px;
+      background:rgba(212,175,55,.08);
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .reportBox{
+      white-space:pre-wrap;
+      background:#0b0b0b;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px;
+      min-height:200px;
+      line-height:1.7;
+    }
+
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      form{grid-template-columns:1fr}
+    }
+
+    @media print{
+      body{background:#fff;color:#000}
+      .toolbar, form, .no-print{display:none !important}
+      .card, .hero{box-shadow:none;border:1px solid #999;background:#fff}
+      h1,h2,h3{color:#000}
+      .muted,.footer-note,p,li,td,th{color:#000}
+      .reportBox{color:#000;background:#fff;border:1px solid #999}
+    }
+  </style>
+<!-- Code injected by Five-server -->
+  <script async="" data-id="five-server" data-file="c:\Users\EDY\Documents\21-04-2026\21-04-2026\index.html" type="application/javascript" src="./Código de Conduta da Equipe — EdyMichaelCover_files/fiveserver.js.download"></script>
+  <style>      
+      /* Injected by five-server */
+      /*[data-highlight="true"] {
+        border: 1px rgb(90,170,255) solid !important;
+        background-color: rgba(155,215,255,0.5);
+        animation: fadeOutHighlight 1s forwards 0.5s;
+      }
+      img[data-highlight="true"] {
+        filter: sepia(100%) hue-rotate(180deg) saturate(200%);
+        animation: fadeOutHighlightIMG 0.5s forwards 0.5s;
+      }*/
+      @keyframes fadeOutHighlight {
+        from {background-color: rgba(155,215,255,0.5);}
+        to {background-color: rgba(155,215,255,0);}
+      }      
+      @keyframes fadeOutHighlightIMG {
+        0% {filter: sepia(100%) hue-rotate(180deg) saturate(200%);}
+        33% {filter: sepia(66%) hue-rotate(180deg) saturate(100%);}
+        50% {filter: sepia(50%) hue-rotate(90deg) saturate(50%);}
+        66% {filter: sepia(33%) hue-rotate(0deg) saturate(100%);}
+        100% {filter: sepia(0%) hue-rotate(0deg) saturate(100%);}
+      }
+      @keyframes fiveserverInfoPopup {
+        0%   {top:-40px;}
+        15%  {top:4px;}
+        85%  {top:4px;}
+        100% {top:-40px;}
+      }
+      /*smaller*/
+      @media (max-width: 640px) {
+        #fiveserver-info-wrapper {
+          max-width: 98%;
+        }
+        #fiveserver-info {
+          border-radius: 0px;
+        }      
+      }
+
+      </style></head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>🎭 Código de Conduta Oficial da Equipe</h1>
+      <p><strong>EdyMichaelCover</strong> — sistema profissional para disciplina, ocorrências, advertências e relatório por dançarino.</p>
+      <p>Este painel foi criado para registrar comportamentos da equipe com clareza, proteger a autoridade do artista e manter a qualidade do show, dos ensaios e da imagem pública do projeto.</p>
+      <span class="badge">Direção artística, disciplina e respeito ao palco</span>
+    </section>
+
+    <div class="grid">
+      <div>
+        <section class="card">
+          <h2>📘 Regras Oficiais da Equipe</h2>
+          <div class="code-list">
+            <div class="rule"><strong>1. Hierarquia do projeto:</strong> O artista é o criador do show e responsável pela direção artística e coreográfica. A equipe executa as orientações com respeito e profissionalismo.</div>
+            <div class="rule"><strong>2. Continuidade do show:</strong> Se houver imprevisto técnico, troca de figurino ou ajuste de entrada, o show não deve parar. Os dançarinos devem sustentar a performance até o comando de retorno do artista.</div>
+            <div class="rule"><strong>3. Postura no palco:</strong> Não demonstrar irritação, contrariedade, deboche ou desorganização perante o público.</div>
+            <div class="rule"><strong>4. Postura após o show:</strong> Qualquer divergência deve ser tratada com conversa respeitosa e direta, nunca saindo sem falar, discutindo de forma alterada ou agindo com arrogância.</div>
+            <div class="rule"><strong>5. Respeito à direção:</strong> O dançarino pode colaborar quando solicitado, mas não impor opiniões como se comandasse o show.</div>
+            <div class="rule"><strong>6. Compromisso com imagem pública:</strong> Toda a equipe representa o nome do artista e do projeto antes, durante e depois do show.</div>
+            <div class="rule"><strong>7. Disciplina de ensaio:</strong> Horário, foco, respeito aos comandos, preparo físico e responsabilidade são parte do trabalho.</div>
+            <div class="rule"><strong>8. Conflitos internos:</strong> Reações emocionais excessivas, autoritarismo, insubordinação e abandono de conversa profissional serão registrados como ocorrência.</div>
+          </div>
+          <div class="toolbar no-print">
+            <button onclick="window.print()">📄 Exportar / Salvar em PDF</button>
+            <button class="secondary" onclick="popularExemplo()">📝 Preencher exemplo desta situação</button>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>⚠️ Registrar ocorrência</h2>
+          <form id="formOcorrencia">
+            <div>
+              <label for="data">Data</label>
+              <input type="date" id="data" required="">
+            </div>
+            <div>
+              <label for="dancarino">Dançarino</label>
+              <input type="text" id="dancarino" placeholder="Ex.: Abizael" required="">
+            </div>
+            <div>
+              <label for="tipo">Tipo de ocorrência</label>
+              <select id="tipo" required="">
+                <option value="">Selecione</option>
+                <option>Atraso</option>
+                <option>Tomar Cafe Com figurino.</option>
+                <option>Ficar com celuar durante o Show</option>
+                <option>Questionar Sobre Coriografias.</option>
+                <option>Não demonstra Constancia.</option>
+                <option>Falha de figurino</option>
+                <option>Engraxar Sapato -> No percuso do show .</option>
+                <option>Falta de respeito</option>
+                <option>Questionamento de autoridade</option>
+                <option>Saída sem falar com a direção</option>
+                <option>Reação emocional excessiva</option>
+                <option>Insubordinação</option>
+                <option>Conduta inadequada pós-show</option>
+              </select>
+            </div>
+            <div>
+              <label for="gravidade">Gravidade</label>
+              <select id="gravidade" required="">
+                <option value="">Selecione</option>
+                <option>Leve</option>
+                <option>Média</option>
+                <option>Grave</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="descricao">Descrição objetiva</label>
+              <textarea id="descricao" placeholder="Descreva o que aconteceu de forma profissional."></textarea>
+            </div>
+            <div class="full">
+              <label for="acao">Orientação dada pela direção</label>
+              <textarea id="acao" placeholder="Ex.: Foi orientado que a equipe mantivesse a dança até a entrada do artista."></textarea>
+            </div>
+            <div class="full">
+              <label for="resultado">Comportamento observado depois</label>
+              <textarea id="resultado" placeholder="Ex.: Ficaram alterados, saíram sem conversar com o artista e mantiveram postura de razão."></textarea>
+            </div>
+            <div class="full">
+              <button type="submit">💾 Salvar ocorrência</button>
+            </div>
+          </form>
+          <div class="footer-note">O sistema calcula automaticamente o nível de advertência por dançarino com base no histórico salvo no navegador.</div>
+        </section>
+      </div>
+
+      <div>
+        <section class="card">
+          <h2>🚨 Sistema de advertência</h2>
+          <p class="muted">Modelo progressivo de correção disciplinar:</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Nível</th>
+                <th>Aplicação</th>
+                <th>Medida</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="pill warn">1º aviso</span></td>
+                <td>Primeira ocorrência leve ou média</td>
+                <td>Orientação verbal e registro</td>
+              </tr>
+              <tr>
+                <td><span class="pill danger-pill">2º aviso</span></td>
+                <td>Reincidência ou conduta de maior impacto</td>
+                <td>Advertência formal registrada</td>
+              </tr>
+              <tr>
+                <td><span class="pill danger-pill">Afastamento</span></td>
+                <td>Persistência da postura ou caso grave</td>
+                <td>Suspensão ou desligamento do projeto</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="stats">
+            <div class="stat"><div class="n" id="totalOcorrencias">4</div><div class="t">Ocorrências</div></div>
+            <div class="stat"><div class="n" id="totalDancarinos">2</div><div class="t">Dançarinos</div></div>
+            <div class="stat"><div class="n" id="totalAvisos">1</div><div class="t">Advertências</div></div>
+            <div class="stat"><div class="n" id="totalAfast">1</div><div class="t">Afastamentos</div></div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>👤 Relatório por dançarino</h2>
+          <div>
+            <label for="filtroDancarino">Escolher dançarino</label>
+            <select id="filtroDancarino"><option value="Abizael">Abizael</option><option value="Renan">Renan</option></select>
+          </div>
+          <div class="toolbar no-print">
+            <button onclick="gerarRelatorio()">📋 Gerar relatório</button>
+            <button class="secondary" onclick="window.print()">🖨 Imprimir relatório</button>
+          </div>
+          <div class="reportBox" id="relatorioTexto">RELATÓRIO DE COMPORTAMENTO — Abizael
+
+Total de ocorrências registradas: 2
+Leves: 1
+Médias: 0
+Graves: 1
+Nível disciplinar atual: Afastamento
+
+Última ocorrência:
+Data: 19/04/2026
+Tipo: Atraso
+Gravidade: Grave
+
+Descrição:
+Chegada atrazado , questionando camisas para o show e saiu sem falar nada.
+
+Orientação da direção:
+Comportamento sem motivo disrespeitoso e autoritario .
+
+Comportamento observado depois:
+Ficaram alterados com comportamento ,sem motivo.
+
+Conclusão profissional:
+Abizael deve compreender que a direção do show pertence ao artista e que a equipe precisa manter disciplina, respeito e estabilidade emocional durante e após a apresentação. Divergências devem ser tratadas com postura profissional, nunca com alteração, insubordinação ou saída sem diálogo.</div>
+        </section>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>📊 Histórico de comportamento</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Dançarino</th>
+            <th>Tipo</th>
+            <th>Gravidade</th>
+            <th>Nível aplicado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tabelaOcorrencias">
+            <tr>
+              <td>19/04/2026</td>
+              <td>Abizael</td>
+              <td>Atraso</td>
+              <td>Grave</td>
+              <td><span class="pill danger-pill">Afastamento</span></td>
+              <td><button class="secondary" onclick="remover(1776676973533)">Excluir</button></td>
+            </tr>
+          
+            <tr>
+              <td>19/04/2026</td>
+              <td>Renan</td>
+              <td>Falta de respeito</td>
+              <td>Leve</td>
+              <td><span class="pill danger-pill">2º aviso</span></td>
+              <td><button class="secondary" onclick="remover(1776677470032)">Excluir</button></td>
+            </tr>
+          
+            <tr>
+              <td>17/03/2026</td>
+              <td>Abizael</td>
+              <td>Questionamento de autoridade</td>
+              <td>Leve</td>
+              <td><span class="pill danger-pill">Afastamento</span></td>
+              <td><button class="secondary" onclick="remover(1773829726026)">Excluir</button></td>
+            </tr>
+          
+            <tr>
+              <td>17/03/2026</td>
+              <td>Renan</td>
+              <td>Questionamento de autoridade</td>
+              <td>Leve</td>
+              <td><span class="pill warn">1º aviso</span></td>
+              <td><button class="secondary" onclick="remover(1773830234592)">Excluir</button></td>
+            </tr>
+          </tbody>
+      </table>
+      <div class="toolbar no-print">
+        <button class="danger" onclick="limparTudo()">🗑 Apagar todos os registros</button>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const KEY = 'edy_conduta_ocorrencias_v1';
+
+    function getData(){
+      return JSON.parse(localStorage.getItem(KEY) || '[]');
+    }
+
+    function setData(data){
+      localStorage.setItem(KEY, JSON.stringify(data));
+    }
+
+    function nivelAdvertencia(qtd, hasGrave){
+      if (hasGrave || qtd >= 3) return 'Afastamento';
+      if (qtd === 2) return '2º aviso';
+      return '1º aviso';
+    }
+
+    function calcularNivelParaRegistro(registro, todos){
+      const doMesmo = todos.filter(i => i.dancarino.toLowerCase() === registro.dancarino.toLowerCase());
+      const qtd = doMesmo.length;
+      const hasGrave = doMesmo.some(i => i.gravidade === 'Grave');
+      return nivelAdvertencia(qtd, hasGrave);
+    }
+
+    function salvarOcorrencia(e){
+      e.preventDefault();
+      const data = document.getElementById('data').value;
+      const dancarino = document.getElementById('dancarino').value.trim();
+      const tipo = document.getElementById('tipo').value;
+      const gravidade = document.getElementById('gravidade').value;
+      const descricao = document.getElementById('descricao').value.trim();
+      const acao = document.getElementById('acao').value.trim();
+      const resultado = document.getElementById('resultado').value.trim();
+
+      if(!data || !dancarino || !tipo || !gravidade){
+        alert('Preencha os campos obrigatórios.');
+        return;
+      }
+
+      const todos = getData();
+      const novo = {
+        id: Date.now(),
+        data,
+        dancarino,
+        tipo,
+        gravidade,
+        descricao,
+        acao,
+        resultado
+      };
+
+      todos.push(novo);
+      novo.nivel = calcularNivelParaRegistro(novo, todos);
+      setData(todos);
+      document.getElementById('formOcorrencia').reset();
+      document.getElementById('data').valueAsDate = new Date();
+      render();
+    }
+
+    function remover(id){
+      const data = getData().filter(i => i.id !== id);
+      setData(data);
+      render();
+    }
+
+    function limparTudo(){
+      if(confirm('Deseja apagar todos os registros?')){
+        localStorage.removeItem(KEY);
+        render();
+      }
+    }
+
+    function resumoPorDancarino(data){
+      const mapa = {};
+      data.forEach(item => {
+        const nome = item.dancarino.trim();
+        if(!mapa[nome]) mapa[nome] = [];
+        mapa[nome].push(item);
+      });
+      return mapa;
+    }
+
+    function atualizarFiltros(data){
+      const select = document.getElementById('filtroDancarino');
+      const nomes = [...new Set(data.map(i => i.dancarino.trim()))].sort((a,b)=>a.localeCompare(b));
+      select.innerHTML = nomes.length
+        ? nomes.map(n => `<option value="${n}">${n}</option>`).join('')
+        : '<option value="">Sem registros</option>';
+    }
+
+    function gerarRelatorio(){
+      const nome = document.getElementById('filtroDancarino').value;
+      const data = getData().filter(i => i.dancarino === nome);
+      const box = document.getElementById('relatorioTexto');
+
+      if(!nome || data.length === 0){
+        box.textContent = 'Nenhum relatório disponível.';
+        return;
+      }
+
+      const graves = data.filter(i => i.gravidade === 'Grave').length;
+      const medias = data.filter(i => i.gravidade === 'Média').length;
+      const leves = data.filter(i => i.gravidade === 'Leve').length;
+      const ultima = data[data.length - 1];
+      const nivelFinal = nivelAdvertencia(data.length, graves > 0);
+
+      const texto = `RELATÓRIO DE COMPORTAMENTO — ${nome}\n\n`+
+        `Total de ocorrências registradas: ${data.length}\n`+
+        `Leves: ${leves}\n`+
+        `Médias: ${medias}\n`+
+        `Graves: ${graves}\n`+
+        `Nível disciplinar atual: ${nivelFinal}\n\n`+
+        `Última ocorrência:\n`+
+        `Data: ${formatarData(ultima.data)}\n`+
+        `Tipo: ${ultima.tipo}\n`+
+        `Gravidade: ${ultima.gravidade}\n\n`+
+        `Descrição:\n${ultima.descricao || '-'}\n\n`+
+        `Orientação da direção:\n${ultima.acao || '-'}\n\n`+
+        `Comportamento observado depois:\n${ultima.resultado || '-'}\n\n`+
+        `Conclusão profissional:\n`+
+        `${nome} deve compreender que a direção do show pertence ao artista e que a equipe precisa manter disciplina, respeito e estabilidade emocional durante e após a apresentação. Divergências devem ser tratadas com postura profissional, nunca com alteração, insubordinação ou saída sem diálogo.`;
+
+      box.textContent = texto;
+    }
+
+    function formatarData(dataStr){
+      if(!dataStr) return '-';
+      const [ano, mes, dia] = dataStr.split('-');
+      return `${dia}/${mes}/${ano}`;
+    }
+
+    function renderTabela(data){
+      const tbody = document.getElementById('tabelaOcorrencias');
+      if(!data.length){
+        tbody.innerHTML = '<tr><td colspan="6" class="muted">Nenhum registro salvo.</td></tr>';
+        return;
+      }
+
+      tbody.innerHTML = data
+        .slice()
+        .sort((a,b)=> new Date(b.data) - new Date(a.data))
+        .map(item => {
+          const cls = item.nivel === '1º aviso' ? 'warn' : 'danger-pill';
+          return `
+            <tr>
+              <td>${formatarData(item.data)}</td>
+              <td>${item.dancarino}</td>
+              <td>${item.tipo}</td>
+              <td>${item.gravidade}</td>
+              <td><span class="pill ${cls}">${item.nivel || '-'}</span></td>
+              <td><button class="secondary" onclick="remover(${item.id})">Excluir</button></td>
+            </tr>
+          `;
+        }).join('');
+    }
+
+    function renderStats(data){
+      const porDancarino = resumoPorDancarino(data);
+      const nomes = Object.keys(porDancarino);
+      let avisos = 0;
+      let afast = 0;
+
+      nomes.forEach(nome => {
+        const regs = porDancarino[nome];
+        const graves = regs.some(i => i.gravidade === 'Grave');
+        const nivel = nivelAdvertencia(regs.length, graves);
+        if(nivel === '1º aviso' || nivel === '2º aviso') avisos++;
+        if(nivel === 'Afastamento') afast++;
+      });
+
+      document.getElementById('totalOcorrencias').textContent = data.length;
+      document.getElementById('totalDancarinos').textContent = nomes.length;
+      document.getElementById('totalAvisos').textContent = avisos;
+      document.getElementById('totalAfast').textContent = afast;
+    }
+
+    function recalcularNiveis(data){
+      const porNome = {};
+      data.forEach(item => {
+        const nome = item.dancarino.toLowerCase();
+        if(!porNome[nome]) porNome[nome] = [];
+        porNome[nome].push(item);
+      });
+      Object.values(porNome).forEach(lista => {
+        const hasGrave = lista.some(i => i.gravidade === 'Grave');
+        lista.forEach((item, idx) => item.nivel = nivelAdvertencia(idx + 1, hasGrave));
+      });
+      setData(data);
+      return data;
+    }
+
+    function popularExemplo(){
+      document.getElementById('data').valueAsDate = new Date();
+      document.getElementById('dancarino').value = 'Nome do dançarino';
+      document.getElementById('tipo').value = 'Questionamento de autoridade';
+      document.getElementById('gravidade').value = 'Média';
+      document.getElementById('descricao').value = 'Durante o show, houve uma troca de camisa do artista. A equipe foi orientada a seguir a performance enquanto o artista entraria alguns segundos depois para não comprometer a apresentação.';
+      document.getElementById('acao').value = 'A direção artística orientou claramente que os dançarinos mantivessem o andamento do número para preservar a qualidade do show até a entrada do artista.';
+      document.getElementById('resultado').value = 'Após a música, os dançarinos demonstraram irritação por terem dançado por um curto momento sem o artista, alteraram o tom emocional e saíram sem conversar de forma profissional com a direção.';
+    }
+
+    function render(){
+      let data = getData();
+      data = recalcularNiveis(data);
+      renderTabela(data);
+      renderStats(data);
+      atualizarFiltros(data);
+      if(document.getElementById('filtroDancarino').value) gerarRelatorio();
+      else document.getElementById('relatorioTexto').textContent = 'Selecione um dançarino e clique em “Gerar relatório”.';
+    }
+
+    document.getElementById('formOcorrencia').addEventListener('submit', salvarOcorrencia);
+    document.getElementById('data').valueAsDate = new Date();
+    render();
+  </script>
+  <a href="http://127.0.0.1:5500/index01.html"><h2>Diciplina</h2> </a>
+
+  <hr>
+  <a href="http://127.0.0.1:5500/index01.html">Next one </a>
+
+</body></html>
